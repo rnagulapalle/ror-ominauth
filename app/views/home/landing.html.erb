@@ -1,0 +1,45 @@
+<% if current_user %>
+<h3>Find below list of opportunities, contacts, and accounts page!</h3>
+    <p/><span class="heading">Opportunities for <b><%= current_user.name %></span><br><p/></b>
+
+    <table border="0" cellspacing="1" cellpadding="5" bgcolor="#CCCCCC">
+    <tr bgcolor="#407BA8">
+        <td style="color: #ffffff; font-weight: bold;">Id</td>
+        <td style="color: #ffffff; font-weight: bold;">Name</td>
+    </tr>
+    <% @opportunities.each do |opp| %>
+        <tr style="background:#ffffff" onMouseOver="this.style.background='#eeeeee';" onMouseOut="this.style.background='#ffffff';">
+            <td nowrap><%= opp["Id"] %></td>
+            <td><%= opp["Name"] %></td>
+        </tr>
+    <% end %>
+    </table>
+
+    <p/><span class="heading">Accounts for <b><%= current_user.name %></span><br><p/></b>
+
+    <table border="0" cellspacing="1" cellpadding="5" bgcolor="#CCCCCC">
+    <tr bgcolor="#407BA8">
+        <td style="color: #ffffff; font-weight: bold;">Name</td>
+    </tr>
+    <% @accounts.each do |acc| %>
+        <tr style="background:#ffffff" onMouseOver="this.style.background='#eeeeee';" onMouseOut="this.style.background='#ffffff';">
+            <td><%= acc["Name"] %></td>
+        </tr>
+    <% end %>
+    </table>
+
+    <p/><span class="heading">Contacts for <b><%= current_user.name %></span><br><p/></b>
+
+    <table border="0" cellspacing="1" cellpadding="5" bgcolor="#CCCCCC">
+    <tr bgcolor="#407BA8">
+        <td style="color: #ffffff; font-weight: bold;">Name</td>
+    </tr>
+    <% @contacts.each do |con| %>
+        <tr style="background:#ffffff" onMouseOver="this.style.background='#eeeeee';" onMouseOut="this.style.background='#ffffff';">
+            <td><%= con["Name"] %></td>
+        </tr>
+    <% end %>
+<% end %>
+</table>
+  
+    
