@@ -8,8 +8,16 @@ class HomeController < ApplicationController
           :refresh_token => current_user.refresh_token,
           :instance_url  => current_user.instance_url,
           :client_id     => Rails.application.config.salesforce_app_id,
-          :client_secret => Rails.application.config.salesforce_app_secret
+          :client_secret => Rails.application.config.salesforce_app_secret,
+          :api_version => '41.0'
         # change value every time you run
+
+        sfacc = client.query_all("select Id, AccountNumber from Account where Id = '0011H00001QXgMsQAL'")
+        puts sfacc
+
+        fsacccol = client.find('Account', '0011H00001QXgMsQAL')
+        puts fsacccol
+        
         sf = client.create('Contact', Email: 'demo4@example.com', LastName: 'Bar4', AccountId: '0011H00001QXgMsQAL')
         puts sf
 
