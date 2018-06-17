@@ -24,6 +24,7 @@
     <% @accounts.each do |acc| %>
         <tr style="background:#ffffff" onMouseOver="this.style.background='#eeeeee';" onMouseOut="this.style.background='#ffffff';">
             <td><%= acc["Name"] %></td>
+            <td nowrap><%= acc["Id"] %></td>
         </tr>
     <% end %>
     </table>
@@ -37,6 +38,8 @@
     <% @contacts.each do |con| %>
         <tr style="background:#ffffff" onMouseOver="this.style.background='#eeeeee';" onMouseOut="this.style.background='#ffffff';">
             <td><%= con["Name"] %></td>
+            <td><%= con["AccountId"] %></td>
+            <td><%= con["Email"] %></td>
         </tr>
     <% end %>
 <% end %>

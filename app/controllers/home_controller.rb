@@ -9,7 +9,10 @@ class HomeController < ApplicationController
           :instance_url  => current_user.instance_url,
           :client_id     => Rails.application.config.salesforce_app_id,
           :client_secret => Rails.application.config.salesforce_app_secret
-          
+        # change value every time you run
+        sf = client.create('Contact', Email: 'demo4@example.com', LastName: 'Bar4', AccountId: '0011H00001QXgMsQAL')
+        puts sf
+
         faccounts = client.query("select Id, Name from Account")
         @accounts = faccounts
         # puts "account object"
