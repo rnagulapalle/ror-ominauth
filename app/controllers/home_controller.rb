@@ -12,12 +12,14 @@ class HomeController < ApplicationController
           :api_version => '41.0'
         # change value every time you run
 
-        sfacc = client.query_all("select Id, AccountNumber from Account where Id = '0011H00001QXgMsQAL'")
-        puts sfacc
+        # sfacc = client.query_all("select Id, AccountNumber from Account where Id = '0011H00001QXgMsQAL'")
+        # puts sfacc
 
-        fsacccol = client.find('Account', '0011H00001QXgMsQAL')
+        fsacccol = client.find('Account', '0011H00001QXgMs')
         puts fsacccol
         
+        client.update('Account', Id: '0011H00001QXgMs',BillingState:'CA',  BillingCity:'San Jose', BillingStreet:'test')
+
         sf = client.create('Contact', Email: 'demo4@example.com', LastName: 'Bar4', AccountId: '0011H00001QXgMsQAL')
         puts sf
 
